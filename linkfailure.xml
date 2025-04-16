@@ -1,0 +1,9 @@
+<scenario>
+    <!-- Simulate link failure between SwitchA_1 and SwitchB_1 -->
+    <at t="4s">
+    	<disconnect src-module="SwitchA_1" src-gate="ethg[1]" dest-module="SwitchB_1" dest-gate="ethg[1]"/>
+    </at>
+    <at t="6s">
+    	<connect src-module="SwitchA_1" src-gate="ethg[1]" dest-module="SwitchB_1" dest-gate="ethg[1]" channel-type="inet.node.ethernet.Eth1G"/>
+    </at>
+</scenario>

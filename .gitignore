@@ -1,0 +1,35 @@
+
+# OMNeT++/INET artifacts
+out/
+*.o
+*.so
+*.a
+*.exe
+*.bak
+*.swp
+*.pyc
+__pycache__/
+
+# Eclipse project files
+.cproject
+.project
+.settings/
+
+# Simulation output
+results/
+*.vec
+*.sca
+*.vci
+*.elog
+*.raw
+*.tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# OMNeT++ project metadata
+.nedexclusions
+.nedfolders
+.oppbuildspec
+.oppfeaturestate

@@ -1,0 +1,11 @@
+<scenario>
+    <!-- Simulate failure of cell links to MEC and SCADA-->
+    <at t="2s">
+    	<disconnect src-module="centralSwitch_2" src-gate="ethg[1]" dest-module="centralSwitch_3" dest-gate="ethg[1]"/>
+    	<disconnect src-module="centralSwitch_2" src-gate="ethg[4]" dest-module="qcSwitch_2" dest-gate="ethg[1]"/>
+    </at>
+    <at t="3s">
+    	<connect src-module="centralSwitch_2" src-gate="ethg[1]" dest-module="centralSwitch_3" dest-gate="ethg[1]" channel-type="inet.node.ethernet.Eth1G"/>
+    	<connect src-module="centralSwitch_2" src-gate="ethg[4]" dest-module="qcSwitch_2" dest-gate="ethg[1]" channel-type="inet.node.ethernet.Eth1G"/>
+    </at>
+</scenario>
