@@ -1,8 +1,19 @@
 //
-// SPDX-License-Identifier: LGPL-3.0-or-later
-//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU Lesser General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+// 
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU Lesser General Public License for more details.
+// 
+// You should have received a copy of the GNU Lesser General Public License
+// along with this program.  If not, see http://www.gnu.org/licenses/.
+// 
 
-package in2c;
+package src;
 
 import inet.common.scenario.ScenarioManager;
 import inet.networks.base.TsnNetworkBase;
@@ -122,9 +133,10 @@ network IN2C extends TsnNetworkBase
         SwitchB_1.ethg++ <--> Eth1G <--> SwitchA_1.ethg++;
 
         //Eth[0] units
+        Inspection_1.ethg++ <--> Eth1G <--> SwitchA_1.ethg++;
         Sensing_1.ethg++ <--> Eth100M <--> SwitchA_1.ethg++;
         Actuating_1.ethg++ <--> Eth100M <--> SwitchA_1.ethg++;
-        Inspection_1.ethg++ <--> Eth100M <--> SwitchA_1.ethg++;
+        
 
         RobotArm_1.ethg++ <--> Eth100M <--> SwitchB_1.ethg++;
         Control_1.ethg++ <--> Eth100M <--> SwitchB_1.ethg++;
@@ -138,10 +150,11 @@ network IN2C extends TsnNetworkBase
         //Eth[1] switches
         SwitchB_2.ethg++ <--> Eth1G <--> SwitchA_2.ethg++;
 
-        //Eth[0] units     
+        //Eth[0] units 
+        Inspection_2.ethg++ <--> Eth1G <--> SwitchA_2.ethg++;    
         Sensing_2.ethg++ <--> Eth100M <--> SwitchA_2.ethg++;
         Actuating_2.ethg++ <--> Eth100M <--> SwitchA_2.ethg++;
-        Inspection_2.ethg++ <--> Eth100M <--> SwitchA_2.ethg++;
+        
 
         RobotArm_2.ethg++ <--> Eth100M <--> SwitchB_2.ethg++;
         Control_2.ethg++ <--> Eth100M <--> SwitchB_2.ethg++;
@@ -157,15 +170,15 @@ network IN2C extends TsnNetworkBase
         qcSwitch_2.ethg++ <--> Eth1G <--> centralSwitch_2.ethg++;
 
 		// Cameras
-        Camera_1.ethg++ <--> Eth100M <--> qcSwitch_1.ethg++;
-        Camera_2.ethg++ <--> Eth100M <--> qcSwitch_1.ethg++;
+        Camera_1.ethg++ <--> Eth1G <--> qcSwitch_1.ethg++;
+        Camera_2.ethg++ <--> Eth1G <--> qcSwitch_1.ethg++;
 
         // Monitoring
-        SCADA.ethg++ <--> Eth100M <--> qcSwitch_2.ethg++;
-        HMI.ethg++ <--> Eth100M <--> qcSwitch_2.ethg++;
+        SCADA.ethg++ <--> Eth1G <--> qcSwitch_2.ethg++;
+        HMI.ethg++ <--> Eth1G <--> qcSwitch_2.ethg++;
 
         // Edge (Multiple Edge Computing, e.g. Server Vision, Cloud gateway)
-        centralSwitch_3.ethg++ <--> Eth100M <--> MEC.ethg++;
+        centralSwitch_3.ethg++ <--> Eth1G <--> MEC.ethg++;
         
         // Clock Distr. Eth [0] for switches
         masterClock.ethg++ <--> Eth100M <--> centralSwitch_1.ethg++ if exists(masterClock);

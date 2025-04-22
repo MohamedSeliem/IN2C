@@ -1,3 +1,3 @@
-package in2c;
+package src;
 
 @license(LGPL);

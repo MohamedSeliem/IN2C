@@ -1,3 +1,3 @@
-package in2c.simulations;
+package simulations;
 
 @license(LGPL);
